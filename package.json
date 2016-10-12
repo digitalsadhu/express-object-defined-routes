@@ -1,7 +1,7 @@
 {
   "name": "express-object-defined-routes",
   "description": "Creates express routes from a definition object",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "license": "MIT",
   "main": "./dist/index.js",
   "repository": {
