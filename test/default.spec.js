@@ -210,12 +210,12 @@ describe('Express object defined routes', function () {
     assert.throws(act, /When children are not specified, callback must be provided/)
   })
 
-  it('definition array objects callback property much be a function', function () {
-    const act = () => { eodr([{name: 'name', path: '/name', callback: 1}]) }
+  it('definition array objects callback property must be a function', function () {
+    const act = () => { eodr([{name: 'name', path: '/name', method: 'get', callback: 1}]) }
     assert.throws(act, /Callback must be a function/)
   })
 
-  it('definition array objects callback property much be a function', function () {
+  it('definition array objects method property must be a string', function () {
     const act = () => { eodr([{name: 'name', path: '/name', callback () {}, method: 1}]) }
     assert.throws(act, /If defined, method must be a string/)
   })

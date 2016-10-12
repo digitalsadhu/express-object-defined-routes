@@ -11,18 +11,19 @@ function validateInput (input) {
     assert.ok(typeof defn.path === 'string', 'definition array objects path property must be a string')
     if (!defn.children) {
       assert.ok(defn.callback, 'When children are not specified, callback must be provided')
-    }
-    if (defn.callback) {
+      assert.ok(defn.method, 'When children are not specified, method must be provided')
+      if (defn.method) {
+        assert.ok(typeof defn.method === 'string', 'If defined, method must be a string')
+      }
+      if (defn.middleware) {
+        assert.ok(Array.isArray(defn.middleware), 'Middleware if specified must be an array of functions')
+        defn.middleware.forEach(middleware => {
+          assert.ok(typeof middleware === 'function', 'Middleware must be a function')
+        })
+      }
       assert.ok(typeof defn.callback === 'function', 'Callback must be a function')
-    }
-    if (defn.middleware) {
-      assert.ok(Array.isArray(defn.middleware), 'Middleware if specified must be an array of functions')
-      defn.middleware.forEach(middleware => {
-        assert.ok(typeof middleware === 'function', 'Middleware must be a function')
-      })
-    }
-    if (defn.method) {
-      assert.ok(typeof defn.method === 'string', 'If defined, method must be a string')
+    } else {
+      assert.ok(Array.isArray(defn.children), 'Property children must be an array')
     }
   })
 }
