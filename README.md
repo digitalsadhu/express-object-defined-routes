@@ -158,7 +158,9 @@ Become a sponsor!
 
 <h3>Contributors</h3>
 
-No contributors yet! Will you be the first?
+These amazing people have contributed code to this project:
+
+<ul><li><a href="http://lovebeer.nz/">Richard Walker</a> — <a href="https://github.com/digitalsadhu/express-object-defined-routes/commits?author=digitalsadhu" title="View the GitHub contributions of Richard Walker on repository digitalsadhu/express-object-defined-routes">view contributions</a></li></ul>
 
 
 
@@ -171,7 +173,7 @@ No contributors yet! Will you be the first?
 
 Unless stated otherwise all works are:
 
-<ul><li>Copyright &copy; <a href="http://github.com/digitalsadhu/express-object-defined-routes">Richard Walker</a></li></ul>
+<ul><li>Copyright &copy; <a href="http://lovebeer.nz/">Richard Walker</a></li></ul>
 
 and licensed under:
 

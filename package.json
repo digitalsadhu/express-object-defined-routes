@@ -12,7 +12,7 @@
     "url": "https://github.com/digitalsadhu/express-object-defined-routes/issues"
   },
   "homepage": "https://github.com/digitalsadhu/express-object-defined-routes",
-  "author": "Richard Walker <digitalsadhu@gmail.com> (http://github.com/digitalsadhu/express-object-defined-routes)",
+  "author": "Richard Walker <digitalsadhu@gmail.com> (http://lovebeer.nz/)",
   "engines": {
     "node": ">=4.0.0"
   },
@@ -63,7 +63,9 @@
   "maintainers": [
     "Richard Walker digitalsadhu@gmail.com"
   ],
-  "contributors": [],
+  "contributors": [
+    "Richard Walker <digitalsadhu@gmail.com> (http://lovebeer.nz/)"
+  ],
   "badges": {
     "list": [
       [
