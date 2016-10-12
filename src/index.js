@@ -10,13 +10,10 @@ function validateInput (input) {
     assert.ok(defn.path, 'definition array objects must contain a path property')
     assert.ok(typeof defn.path === 'string', 'definition array objects path property must be a string')
     if (!defn.children) {
-      assert.ok(defn.callback, 'When children are not specified, callback must not be provided')
+      assert.ok(defn.callback, 'When children are not specified, callback must be provided')
     }
     if (defn.callback) {
       assert.ok(typeof defn.callback === 'function', 'Callback must be a function')
-    }
-    if (!defn.callback) {
-      assert.ok(defn.children, 'When callback is not specified, children must not be provided')
     }
     if (defn.middleware) {
       assert.ok(Array.isArray(defn.middleware), 'Middleware if specified must be an array of functions')
