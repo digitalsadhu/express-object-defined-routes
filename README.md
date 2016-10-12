@@ -39,7 +39,100 @@ Creates express routes from a definition object
 
 
 ## Usage
-Usage instructions go here
+
+Takes a route definition array and creates express routes before returning a router you can mount in your express app
+For example:
+
+Require express-object-defined-routes
+```js
+const eodr = require('express-object-defined-routes')
+```
+
+Create a route definition array
+```js
+const definition = [
+  { name: 'index',
+    path: '/',
+    method: 'get',
+    callback (req, res) { res.send('parent index route') } },
+  { name: 'users',
+    path: '/users',
+    children: [
+      { name: 'index',
+        path: '/',
+        method: 'get',
+        callback (req, res) { res.send('child index route') } },
+      { name: 'posts',
+        path: '/posts',
+        method: 'get',
+        middleware: [function (req, res, next) { next() }]
+        callback (req, res) { res.send('child posts route') } }
+    ] }
+]
+```
+
+Create an express router from the definition array
+```js
+const router = eodr(definition)
+```
+
+Mount the router in your express app
+```js
+const app = express()
+app.use(router)
+app.listen(3010)
+```
+
+The definition above will produce the following routes:
+GET /
+GET /users
+GET /users/post
+
+### Documentation
+
+Understanding a route definition
+```js
+[{
+  // the name of the route (required)
+  name: 'posts',
+
+  // the path for the route (required)
+  // this is the first parameter to an express router method
+  // eg. router.get('/posts', handler)
+  // see: http://expressjs.com/en/api.html#router.METHOD
+  // or the mount point for child routes (when the children property is defined)
+  // eg. router.use('/posts', express.Router(...))
+  // see: http://expressjs.com/en/api.html#router.use
+  path: '/posts',
+
+  // http method to use for the route. get, put, post, delete etc
+  // eg. router.get(...), router.put(...), router.post(...), etc.
+  // see: http://expressjs.com/en/api.html#router.METHOD
+  // nb. if children property (see below) is not defined, method is required.
+  method: 'get',
+
+  // Middleware to be used in route definition (optional)
+  // Specified as an array of middleware functions
+  // see. http://expressjs.com/en/api.html#router.METHOD
+  middleware: [
+    function (req, res, next) { next() },
+    function (req, res, next) { next() }
+  ],
+
+  // defines the handler function that will be called if a user
+  // visits the route
+  // see http://expressjs.com/en/api.html#router.METHOD
+  // nb. if children property (see below) is defined, callback
+  // will be ignored.
+  // nb. if children is not defined, callback is required.
+  callback (req, res) { res.send('child') },
+
+  // Used to specify additional child definitions. (optional)
+  // nb. if defined, method, middleware and callback for the current
+  // route definition will be ignored.
+  children: []
+}]
+```
 
 <!-- HISTORY/ -->
 
