@@ -40,15 +40,15 @@ Creates express routes from a definition object
 
 ## Usage
 
-Takes a route definition array and creates express routes before returning a router you can mount in your express app
+Takes a route definition array and creates express routes before returning a router you can mount in your express app.
 For example:
 
-Require express-object-defined-routes
+Require express-object-defined-routes:
 ```js
 const eodr = require('express-object-defined-routes')
 ```
 
-Create a route definition array
+Create a route definition array:
 ```js
 const definition = [
   { name: 'index',
@@ -71,12 +71,12 @@ const definition = [
 ]
 ```
 
-Create an express router from the definition array
+Create an express router from the definition array:
 ```js
 const router = eodr(definition)
 ```
 
-Mount the router in your express app
+Mount the router in your express app:
 ```js
 const app = express()
 app.use(router)
@@ -84,13 +84,13 @@ app.listen(3010)
 ```
 
 The definition above will produce the following routes:
-GET /
-GET /users
-GET /users/post
+- `GET /`
+- `GET /users`
+- `GET /users/post`
 
 ### Documentation
 
-Understanding a route definition
+Understanding a route definition:
 ```js
 [{
   // the name of the route (required)
