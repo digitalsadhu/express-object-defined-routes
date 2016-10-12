@@ -5,8 +5,6 @@ function validateInput (input) {
   assert.ok(Array.isArray(input), 'definition argument must be an array')
   input.forEach(defn => {
     assert.ok(typeof defn === 'object', 'definition array must only contain objects')
-    assert.ok(defn.name, 'definition array objects must contain a name property')
-    assert.ok(typeof defn.name === 'string', 'definition array objects name property must be a string')
     assert.ok(defn.path, 'definition array objects must contain a path property')
     assert.ok(typeof defn.path === 'string', 'definition array objects path property must be a string')
     if (!defn.children) {

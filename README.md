@@ -51,19 +51,15 @@ const eodr = require('express-object-defined-routes')
 Create a route definition array:
 ```js
 const definition = [
-  { name: 'index',
-    path: '/',
+  { path: '/',
     method: 'get',
     callback (req, res) { res.send('parent index route') } },
-  { name: 'users',
-    path: '/users',
+  { path: '/users',
     children: [
-      { name: 'index',
-        path: '/',
+      { path: '/',
         method: 'get',
         callback (req, res) { res.send('child index route') } },
-      { name: 'posts',
-        path: '/posts',
+      { path: '/posts',
         method: 'get',
         middleware: [function (req, res, next) { next() }]
         callback (req, res) { res.send('child posts route') } }
@@ -93,9 +89,6 @@ The definition above will produce the following routes:
 Understanding a route definition:
 ```js
 [{
-  // the name of the route (required)
-  name: 'posts',
-
   // the path for the route (required)
   // this is the first parameter to an express router method
   // eg. router.get('/posts', handler)
