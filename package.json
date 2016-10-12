@@ -14,7 +14,7 @@
   "homepage": "https://github.com/digitalsadhu/express-object-defined-routes",
   "author": "Richard Walker <digitalsadhu@gmail.com> (http://github.com/digitalsadhu/express-object-defined-routes)",
   "engines": {
-    "node": ">=4.0.0"
+    "node": ">=6.7.0"
   },
   "scripts": {
     "lint": "standard --verbose | snazzy",
